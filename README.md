@@ -1,5 +1,7 @@
 # A Short Species Distribution Modeling Tutorial
-This repository contains a short tutorial for creating a species distribution model using QGIS, R, and MaxEnt. I prepared this documentation for the skills training sessions during the lab retreat of the [Applied Plant Ecology Lab](https://www.appliedplantecology.org), Department of Biological Sciences, National University of Singapore held on 25-28 September 2017 in Malacca, Malaysia.
+
+
+This repository is a fork from (@dondealban) and contains a short tutorial for creating a species distribution model using QGIS, R, and MaxEnt. The original tutorial was prepared for the skills training sessions during the lab retreat of the [Applied Plant Ecology Lab](https://www.appliedplantecology.org), Department of Biological Sciences, National University of Singapore held on 25-28 September 2017 in Malacca, Malaysia. This version is an adapted version for the QGIS, R and Maxent part of the data use workshop organized by the [Belgian Biodiversity Platform](http://biodiversity.be). 
 
 
 ## Table of Contents
