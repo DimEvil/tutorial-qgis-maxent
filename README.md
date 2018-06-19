@@ -35,6 +35,8 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 ## Study Area
 **Belgium** Belgium (/ˈbɛldʒəm/ (About this sound listen) BEL-jəm),[A] officially the Kingdom of Belgium, is a country in Western Europe bordered by France, the Netherlands, Germany and Luxembourg. A small and densely populated country, it covers an area of 30,528 square kilometres (11,787 sq mi) and has a population of more than 11 million. Straddling the cultural boundary between Germanic and Latin Europe, Belgium is home to two main linguistic groups: the Dutch-speaking, mostly Flemish community, which constitutes about 59 percent of the population, and the French-speaking, mostly Walloon population, which comprises about 40 percent of all Belgians. Additionally, there is a small ~1 percent group of German speakers who live in the East Cantons.
 
+**Flanders** Flanders (Dutch: Vlaanderen [ˈvlaːndərə(n)] (About this sound listen), French: Flandre [flɑ̃dʁ], German: Flandern [ˈflandɐn]) is the Dutch-speaking northern portion of Belgium, although there are several overlapping definitions, including ones related to culture, language, politics and history. It is one of the communities, regions and language areas of Belgium. The demonym associated with Flanders is Fleming, while the corresponding adjective is Flemish. The official capital of Flanders is Brussels,[1] although the Brussels Capital Region has an independent regional government, and the government of Flanders only oversees the community aspects of Flanders life there such as (Flemish) culture and education.
+
 ![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
 
 <a name="prepare_datasets"></a>
@@ -42,9 +44,9 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
-    - Load the **PHL_adm2.shp** shapefile by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries.
+    - Load the **vlaanderen.shp** shapefile by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries.
 
-    ![data-prep1](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
+    ![data-prep1](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
 
     - To select our areas of interest, we will select the municipalities from the attribute table. Open the attribute table of **PHL_adm2.shp** by right-clicking the shapefile within the `Layers Panel` and then selecting **`Open Attribute Table`** from the menu. Inside the attribute table window, click the `Select features using an expression` icon. Once the **`Select by expression`** dialog box opens, enter the following expression:
     ```
