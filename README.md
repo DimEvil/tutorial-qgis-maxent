@@ -35,7 +35,7 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 ## Study Area
 **Belgium** Belgium (/ˈbɛldʒəm/ (About this sound listen) BEL-jəm),[A] officially the Kingdom of Belgium, is a country in Western Europe bordered by France, the Netherlands, Germany and Luxembourg. A small and densely populated country, it covers an area of 30,528 square kilometres (11,787 sq mi) and has a population of more than 11 million. Straddling the cultural boundary between Germanic and Latin Europe, Belgium is home to two main linguistic groups: the Dutch-speaking, mostly Flemish community, which constitutes about 59 percent of the population, and the French-speaking, mostly Walloon population, which comprises about 40 percent of all Belgians. Additionally, there is a small ~1 percent group of German speakers who live in the East Cantons.
 
-![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N200Belgium.jpg)
+![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
 
 <a name="prepare_datasets"></a>
 ## Prepare Datasets
