@@ -1,0 +1,55 @@
+---
+title: "WorldCLim Clipping"
+author: "Dimitri Brosens"
+date: "26 juni 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#R {raster}: Data acquisition – SRTM, Worldclim, Global adm. boundaries
+
+Original Tutorial [here](https://www.gis-blog.com/r-raster-data-acquisition/)
+
+The raster package is not only a great tool for raster processing and calculation but also very useful for data acquisition. With the function getData() you can download the following data directly into R and process it:
+
+SRTM 90 (elevation data with 90m resolution between latitude  -60 and 60)
+World Climate Data (Tmin, Tmax, Precip, BioClim)
+Global adm. boundaries (different levels)
+
+# Global adm. boundaries
+
+## Install needed packages
+
+```{r message=FALSE}
+install.packages("raster")
+library(raster)
+library(sp)
+
+```
+```{r}
+Belgium0 <- getData('GADM', country='BEL', level=0)
+head(Belgium0)
+```
+
+
+
+* Select Dataset: The first argument specifies the dataset. ‘GADM’ returns the global administrative boundaries.
+* Select country: The second argument provides the country name of the boundaries by using its ISO A3 country code [more info here](http://kirste.userpage.fu-berlin.de/diverse/doc/ISO_3166.html)
+Specify level: The third argument specifies the level of of administrative subdivision (0=country, 1=first level subdivision).
+The code above returns the boundaries for Belgium for the level 0. Lets compare them to the Level 1 subdivision by plotting both of them:
+
+```{r}
+#Get Data
+Belgium0 <- getData('GADM' , country="BEL", level=0)
+Belgium1 <- getData('GADM' , country="BEL", level=1)
+
+#Plot
+par(mfrow(2,1))
+plot(Belgium0, main="Adm. Boundaries Austria Level 0")
+plot(Belgium1, main="Adm. Boundaries Austria Level 1")
+```
+
+
