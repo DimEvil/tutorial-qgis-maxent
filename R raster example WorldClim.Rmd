@@ -94,5 +94,19 @@ BIO19 = Precipitation of Coldest Quarter
 #Plot
 Lets plot the first indicator “Annual Mean Temperature”:
 
+```{r}
+plot(climate$bio1, main="Annual Mean Temperature")
+```
 
+# SRTM 90 Elevation
+Last but not least, lets have a look at the SRTM 90 Data. We will use the getData() function one last time:
+
+```{r message=FALSE}
+srtm <- getData('SRTM', lon=7, lat=51)
+```
+
+* Select Dataset: The first argument specifies the dataset. ‘SRTM’ returns the SRTM 90 elevation data.
+* Specify Lon: The second argument specifies the lon of the SRTM tile.
+* Specify Lat:  The second argument specifies the lat of the SRTM tile.
+The code above will return one SRTM Tile somewhere around Brussels. Let’s plot the adm. boundaries of Belgium together with the SRTM Tile in one plot:
 
