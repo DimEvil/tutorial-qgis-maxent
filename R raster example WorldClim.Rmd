@@ -110,3 +110,21 @@ srtm <- getData('SRTM', lon=7, lat=51)
 * Specify Lat:  The second argument specifies the lat of the SRTM tile.
 The code above will return one SRTM Tile somewhere around Brussels. Let’s plot the adm. boundaries of Belgium together with the SRTM Tile in one plot:
 
+```{r}
+plot(srtm)
+plot(Belgium0, add=TRUE)
+```
+As you can see, not all of Belgium is covered by this tile. Lets download two more eastern tiles and mosaic them to get the full extent of Belgium. You can get more info on the tile extent [here](http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp).
+
+```{r}
+#Download two more tiles
+srtm2 <- getData('SRTM', lon=0, lat=55)
+srtm3 <- getData('SRTM', lon=9, lat=48)
+
+#Mosaic/merge srtm tiles
+srtmmosaic <- mosaic(srtm, srtm2, srtm3, fun=mean)
+
+
+
+```
+

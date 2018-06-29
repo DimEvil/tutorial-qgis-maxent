@@ -1,0 +1,64 @@
+---
+title: "Entire country SRTM data"
+author: "Dimitri Brosens"
+date: "29 juni 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(raster)
+library(rgeos)
+library(rasterVis)
+```
+
+# Then specify the country for your SRTM data download:
+Specify target ISO country code and path to downloaded shapefile
+
+```{r}
+country_name <- "BEL"                        #Belgium
+shp          <- shapefile("srtm/tiles.shp")  #Path to downloaded SRTM Tiles
+```
+
+```{r}
+#Get country geometry first
+country <- getData("GADM", country = 'BEL', level=0)
+
+#Intersect country geometry and tile grid
+intersects <- gIntersects(country, shp, byid=T)
+tiles      <- shp[intersects[,1],]
+
+#Download tiles
+srtm_list  <- list()
+for(i in 1:length(tiles)) {
+  lon <- extent(tiles[i,])[1]  + (extent(tiles[i,])[2] - extent(tiles[i,])[1]) / 2
+  lat <- extent(tiles[i,])[3]  + (extent(tiles[i,])[4] - extent(tiles[i,])[3]) / 2
+  
+  tile <- getData('SRTM', 
+                  lon=lon, 
+                  lat=lat)
+  
+  srtm_list[[i]] <- tile
+}
+
+```
+
+#Mosaic Tiles
+
+```{r}
+srtm_list$fun <- mean 
+srtm_mosaic   <- do.call(mosaic, srtm_list)
+
+#Crop tiles to country borders
+srtm_crop     <- mask(srtm_mosaic, country)
+
+#Plot
+p <- levelplot(srtm_mosaic)
+p + layer(sp.lines(country, 
+                   lwd=0.8, 
+                   col='darkgray'))
+```
+
