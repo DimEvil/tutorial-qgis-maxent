@@ -50,8 +50,8 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
     - Next, we will create a polygon from the extent of the Flanders shapefile that we have just saved. Go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
 
-      + Under the `Input Layer` drop-down menu, select the newly created **polillos.shp** shapefile.
-      + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box2.shp**, which consists of a polygon covering the extent of the study area.
+      + Under the `Input Layer` drop-down menu, select the newly created **vlaanderen.shp** shapefile.
+      + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
 
     ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
 
