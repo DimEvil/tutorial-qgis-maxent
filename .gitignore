@@ -10,3 +10,4 @@ FlandersClippedBox3_biol7.tif
 *.hdr
 /rasters/*
 tutorial-qgis-maxent.Rproj
+*.tfw
