@@ -40,3 +40,4 @@ FlandersClippedBox3_biol7.tif
 *.aux.xml
 /qgis/*
 /maxent/*
+*.qgs
