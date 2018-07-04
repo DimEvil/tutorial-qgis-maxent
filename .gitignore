@@ -33,7 +33,7 @@ FlandersClippedBox3_biol7.tif
 *.bil
 *.tif
 *.hdr
-/rasters/*
+
 *.rds
 *.tfw
 .Rproj.user
