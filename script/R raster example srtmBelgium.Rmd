@@ -20,12 +20,12 @@ Specify target ISO country code and path to downloaded shapefile
 
 ```{r}
 country_name <- "BEL"                        #Belgium
-shp          <- shapefile("srtm/tiles.shp")  #Path to downloaded SRTM Tiles
+shp          <- shapefile("../srtm/tiles.shp")  #Path to downloaded SRTM Tiles
 ```
 
 ```{r}
 #Get country geometry first
-country <- getData("GADM", country = 'BEL', level=0)
+country <- getData("GADM", country = 'BEL', level=0, res = 0.5)
 
 #Intersect country geometry and tile grid
 intersects <- gIntersects(country, shp, byid=T)
