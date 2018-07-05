@@ -44,3 +44,9 @@ FlandersClippedBox3_biol7.tif
 *.qgs
 Qgis/BBPFWorkshop.qgs
 *.stx
+rasters/wc0.5_europe/altitude.asc
+*.prj
+rasters/Clipped_Flanders/maxent.cache/FlandersBio7.info
+*.mxe
+rasters/Clipped_Flanders/maxent.cache/FlandersBio8.info
+*.info
