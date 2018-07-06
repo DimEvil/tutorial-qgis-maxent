@@ -63,7 +63,9 @@ plot(Belgium1, main="Adm. Boundaries Belgium Level 1")
 Lets do the same with the World Climate data, here you also have to specify three arguments:
 
 ```{r message=FALSE}
-climate <- getData('worldclim', var='bio', res=2.5)
+climate0_5 <- getData('worldclim', var='bio', res= 0.5 ,lon=7, lat=51 )
+
+
 ```
 
 * Select Dataset: The first argument specifies the dataset. ‘worldclim’ returns the World Climate Data.
