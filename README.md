@@ -24,11 +24,21 @@ For this tutorial, download and install [QGIS](http://www.qgis.org/en/site/forus
 #### Data
 MaxEnt will require two types of input datasets:
 
-1. **Species occurrence data.** The species occurrence records are the geographic point locations or coordinates of species observations. For this exercise, we will use data downloaded from [GBIF](www.gbif.org). For this tutorial we used this dataset [data](https://doi.org/10.15468/dl.cu4aii) (249 KB, CSV file) Papilio machaon occurrences in Flanders, Belgium. The dataset only holds occurrences between 1960 and 1990, because of the WorldClim data available. You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/csv/Papilio_machaon.csv)
+1. **Species occurrence data.** The species occurrence records are the geographic point locations or coordinates of species observations. For this exercise, we will use data downloaded from [GBIF](www.gbif.org). For this tutorial we used this dataset [data](https://doi.org/10.15468/dl.cu4aii) (249 KB, CSV file) [Papilio machaon](https://en.wikipedia.org/wiki/Papilio_machaon) occurrences in Flanders, Belgium. The dataset only holds occurrences between 1960 and 1990, because of the WorldClim data available. You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/csv/Papilio_machaon.csv). 
+	
+	- Create a folder for csv's and place the occurrence data there. Name your file Papilio_machaon 
+	- Clean your dataset
+		- remove all occurrences which do not pertain to Flanders
+		- remove all suspicious occurrences (occurrences in the ocean...)
+		- Check your desired occurrence precission. (For this example
 
-2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can also be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data and [here](file:///C:\Users\dimitri_brosens\Documents\GitHub\tutorial-qgis-maxent\rasters\world) for future scenario's.
+2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can also be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data and [here](file:///C:\Users\dimitri_brosens\Documents\GitHub\tutorial-qgis-maxent\rasters\world) for future scenario's. 
+
+	-Next, we will unzip the bio_16.zip file in the apropriate folders. 
 
 To prepare the datasets, we will also need **administrative boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the [download](http://biogeo.ucdavis.edu/data/gadm2.8/shp/PHL_adm_shp.zip) link provided (~22 MB, ZIP file). For this exercise we will use this file [FlandersWGS84](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Belgium/Vlaanderen_WGS84-20180703T080424Z-001.zip)
+
+- Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to safe this polygon as a .shp file so you can clip the environmental raster data correct.
 
 
 <a name="study_area"></a>
@@ -55,9 +65,11 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
     ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
 
-	- Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. 
+	
 
-    - Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
+    -
+
+	- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
 
       + Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
       + Under the `Polygons` input line, select the **box.shp** shapefile from the drop-down menu. The rasters will be clipped using the extent of this polygon.
@@ -106,7 +118,7 @@ We are now ready to create our first species distribution model using MaxEnt.
 
 1. Open MaxEnt and load the `Samples` and `Environmental Layers` by navigating to the respective directories of those files. Ensure that the tick boxes of all files are checked, and that the `Environmental Layers` files are all 'Continuous' types.
 
-![maxent1](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/maxent_01.png)
+![maxent1](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/screenshots/maxent_01.png)
 
 2. Also, in the main MaxEnt window, check tick boxes or select the following options:
 

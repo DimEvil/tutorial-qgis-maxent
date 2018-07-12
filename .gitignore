@@ -25,7 +25,6 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 # Custom ignore
-
 layout1.png
 layout2.png
 biol2_World.tif
@@ -33,7 +32,6 @@ FlandersClippedBox3_biol7.tif
 *.bil
 *.tif
 *.hdr
-
 *.rds
 *.tfw
 .Rproj.user
@@ -50,3 +48,4 @@ rasters/Clipped_Flanders/maxent.cache/FlandersBio7.info
 *.mxe
 rasters/Clipped_Flanders/maxent.cache/FlandersBio8.info
 *.info
+srtm_samen.zip
