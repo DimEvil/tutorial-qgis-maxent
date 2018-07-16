@@ -19,7 +19,7 @@ This repository is a fork from (@dondealban) and contains a short tutorial for c
 ## Download and Installation
 
 #### Software
-For this tutorial, download and install [QGIS](http://www.qgis.org/en/site/forusers/download.html), [Rstudio](https://www.rstudio.com/), and [MaxEnt](https://biodiversityinformatics.amnh.org/open_source/maxent/), all of which are free and open-source software. For QGIS and R, download the versions compatible with your machine's operating system. MaxEnt is a Java-based application and runs using various operating systems. The procedures shown in this tutorial uses a Windows platform but it should be applicable to other operating systems.
+For this tutorial, download and install [QGIS](http://www.qgis.org/en/site/forusers/download.html), [Rstudio](https://www.rstudio.com/), [OpenRefine](http://openrefine.org) and [MaxEnt](https://biodiversityinformatics.amnh.org/open_source/maxent/), all of which are free and open-source software. For QGIS and R, download the versions compatible with your machine's operating system. MaxEnt is a Java-based application and runs using various operating systems. The procedures shown in this tutorial uses a Windows platform but it should be applicable to other operating systems.
 
 #### Data
 MaxEnt will require two types of input datasets:
@@ -32,13 +32,15 @@ MaxEnt will require two types of input datasets:
 		- remove all suspicious occurrences (occurrences in the ocean...)
 		- Check your desired occurrence precission. (For this example
 
-2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can also be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data and [here](file:///C:\Users\dimitri_brosens\Documents\GitHub\tutorial-qgis-maxent\rasters\world) for future scenario's. 
+2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data and [here](file:///C:\Users\dimitri_brosens\Documents\GitHub\tutorial-qgis-maxent\rasters\world) for future scenario's.  *note*
 
-	-Next, we will unzip the bio_16.zip file in the apropriate folders. 
+	-Next, we will unzip the bio_16.zip file in the appropriate folders.
+
+One variable, used frequently in niche modelling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). 
 
 To prepare the datasets, we will also need **administrative boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the [download](http://biogeo.ucdavis.edu/data/gadm2.8/shp/PHL_adm_shp.zip) link provided (~22 MB, ZIP file). For this exercise we will use this file [FlandersWGS84](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Belgium/Vlaanderen_WGS84-20180703T080424Z-001.zip)
 
-- Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to safe this polygon as a .shp file so you can clip the environmental raster data correct.
+- Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correct.
 
 
 <a name="study_area"></a>
