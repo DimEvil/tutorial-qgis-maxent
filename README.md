@@ -30,7 +30,7 @@ MaxEnt will require two types of input datasets:
 	- Clean your dataset
 		- remove all occurrences which do not pertain to Flanders
 		- remove all suspicious occurrences (occurrences in the ocean...)
-		- Check your desired occurrence precission. (For this example
+		- Check your desired occurrence precission.
 
 2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data and [here](file:///C:\Users\dimitri_brosens\Documents\GitHub\tutorial-qgis-maxent\rasters\world) for future scenario's.  *note*
 
