@@ -42,13 +42,13 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
 - Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correct.
 
-##Draw your training polygon in Qgis
+## Draw your training polygon in Qgis
 
 - Open your (Cleaned) occurrences layes in Qgis
 - In Layers, choose Create "New shapefile"" layer
 - In the resulting window click the button for "polygon", click ok and name your polygon      `'Species_name'_TrainingRegionFlanders`
   
-  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG){:height="36px" width="36px"}
+  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG)
   
 - Select your new layer (is highlighted) in the panels section
 - Hit the Edit button
@@ -76,6 +76,8 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 <a name="prepare_datasets"></a>
 ## Prepare Datasets
 
+### create Flanders bouding box to clip Raster files
+
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
     - Load the **vlaanderen_wgs84.shp** [shapefile](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84.shp) by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries. Make sure the shapefile you will use has the correct SRS. In most cases WGS84.
@@ -88,10 +90,16 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
       + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
 
     ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
+    
+### Alternatively; Use your created trainnig region for clipping the Raster files
 
-	
+2. Alternatively, use your trainingRegionFlanders shapefile to clip the environmental layers.
 
     -
+
+## Clipping RasterFiles with trainingRegion or bounding box
+
+![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-clip-raster1.png)
 
 	- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
 
