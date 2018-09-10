@@ -91,6 +91,15 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
     ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
     
+    ![data-prepbox](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.png)
+    
+
+
+
+
+
+
+
 ### Alternatively; Use your created trainnig region for clipping the Raster files
 
 2. Alternatively, use your trainingRegionFlanders shapefile to clip the environmental layers.
