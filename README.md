@@ -99,7 +99,7 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 ## Clipping RasterFiles with trainingRegion or bounding box
 
-![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-clip-raster1.png)
+![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-clip-raster1.png)
 
 	- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
 
