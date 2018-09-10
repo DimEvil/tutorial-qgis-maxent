@@ -40,9 +40,43 @@ One variable, used frequently in niche modelling is the altitude. The altitude i
 
 To prepare the datasets, we will also need **administrative boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the [download](http://biogeo.ucdavis.edu/data/gadm2.8/shp/PHL_adm_shp.zip) link provided (~22 MB, ZIP file). For this exercise we will use this file [FlandersWGS84](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Belgium/Vlaanderen_WGS84-20180703T080424Z-001.zip)
 
-- Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correct.
+`Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correct.`
 
-## Draw your training polygon in Qgis
+
+
+<a name="study_area"></a>
+## Study Area
+**Belgium** Belgium (/ˈbɛldʒəm/ (About this sound listen) BEL-jəm),[A] officially the Kingdom of Belgium, is a country in Western Europe bordered by France, the Netherlands, Germany and Luxembourg. A small and densely populated country, it covers an area of 30,528 square kilometres (11,787 sq mi) and has a population of more than 11 million. Straddling the cultural boundary between Germanic and Latin Europe, Belgium is home to two main linguistic groups: the Dutch-speaking, mostly Flemish community, which constitutes about 59 percent of the population, and the French-speaking, mostly Walloon population, which comprises about 40 percent of all Belgians. Additionally, there is a small ~1 percent group of German speakers who live in the East Cantons.
+
+**Flanders** Flanders (Dutch: Vlaanderen [ˈvlaːndərə(n)] (About this sound listen), French: Flandre [flɑ̃dʁ], German: Flandern [ˈflandɐn]) is the Dutch-speaking northern portion of Belgium, although there are several overlapping definitions, including ones related to culture, language, politics and history. It is one of the communities, regions and language areas of Belgium. The demonym associated with Flanders is Fleming, while the corresponding adjective is Flemish. The official capital of Flanders is Brussels,[1] although the Brussels Capital Region has an independent regional government, and the government of Flanders only oversees the community aspects of Flanders life there such as (Flemish) culture and education.
+
+![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
+
+<a name="prepare_datasets"></a>
+## Prepare Datasets
+
+### Option 1: Create Flanders bouding box to clip Raster files
+
+1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
+
+    - Load the **vlaanderen_wgs84.shp** [shapefile](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84.shp) by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries. Make sure the shapefile you will use has the correct SRS. In most cases WGS84.
+
+    ![data-prep1](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
+
+    - Next, we will create a polygon from the extent of the Flanders shapefile that we have just saved. Go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
+
+      + Under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
+      + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
+
+    ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
+    
+We have created a bounding box of Flanders, this box can be used as the polygon to clip the raster files.     
+    
+    ![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
+    
+
+
+### Option 2: Draw your own training polygon in Qgis
 
 - Open your (Cleaned) occurrences layes in Qgis
 - In Layers, choose Create "New shapefile"" layer
@@ -65,46 +99,6 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
 
 
-<a name="study_area"></a>
-## Study Area
-**Belgium** Belgium (/ˈbɛldʒəm/ (About this sound listen) BEL-jəm),[A] officially the Kingdom of Belgium, is a country in Western Europe bordered by France, the Netherlands, Germany and Luxembourg. A small and densely populated country, it covers an area of 30,528 square kilometres (11,787 sq mi) and has a population of more than 11 million. Straddling the cultural boundary between Germanic and Latin Europe, Belgium is home to two main linguistic groups: the Dutch-speaking, mostly Flemish community, which constitutes about 59 percent of the population, and the French-speaking, mostly Walloon population, which comprises about 40 percent of all Belgians. Additionally, there is a small ~1 percent group of German speakers who live in the East Cantons.
-
-**Flanders** Flanders (Dutch: Vlaanderen [ˈvlaːndərə(n)] (About this sound listen), French: Flandre [flɑ̃dʁ], German: Flandern [ˈflandɐn]) is the Dutch-speaking northern portion of Belgium, although there are several overlapping definitions, including ones related to culture, language, politics and history. It is one of the communities, regions and language areas of Belgium. The demonym associated with Flanders is Fleming, while the corresponding adjective is Flemish. The official capital of Flanders is Brussels,[1] although the Brussels Capital Region has an independent regional government, and the government of Flanders only oversees the community aspects of Flanders life there such as (Flemish) culture and education.
-
-![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
-
-<a name="prepare_datasets"></a>
-## Prepare Datasets
-
-### create Flanders bouding box to clip Raster files
-
-1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
-
-    - Load the **vlaanderen_wgs84.shp** [shapefile](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84.shp) by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries. Make sure the shapefile you will use has the correct SRS. In most cases WGS84.
-
-    ![data-prep1](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
-
-    - Next, we will create a polygon from the extent of the Flanders shapefile that we have just saved. Go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
-
-      + Under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
-      + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
-
-    ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
-    
-    ![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
-    
-
-
-
-
-
-
-
-### Alternatively; Use your created trainnig region for clipping the Raster files
-
-2. Alternatively, use your trainingRegionFlanders shapefile to clip the environmental layers.
-
-    -
 
 ## Clipping RasterFiles with trainingRegion or bounding box
 
