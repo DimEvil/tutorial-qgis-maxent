@@ -42,6 +42,19 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
 - Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correct.
 
+##Draw your training polygon in Qgis
+
+- Open your (Cleaned) occurrences layes in Qgis
+- In Layers, choose Create new shapefile layer
+  - Choose polygon
+  
+  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG)
+  
+  
+
+
+You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
+
 
 <a name="study_area"></a>
 ## Study Area
