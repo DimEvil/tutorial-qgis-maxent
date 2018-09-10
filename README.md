@@ -45,12 +45,19 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 ##Draw your training polygon in Qgis
 
 - Open your (Cleaned) occurrences layes in Qgis
-- In Layers, choose Create new shapefile layer
-  - Choose polygon
+- In Layers, choose Create "New shapefile"" layer
+- In the resulting window click the button for "polygon", click ok and name your polygon      `'Species_name'_TrainingRegionFlanders`
   
   ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG)
   
-  
+- Select your new layer (is highlighted) in the panels section
+- Hit the Edit button
+- Choose "Create new polygon" button
+- Draw your Training Area
+  Every time you left click on the map, a dot will be created. QGIS will draw lines to connect these dots to create a polygon. If you mis-click, do not worry - you will be able to move points to the appropriate place.
+- Right click anywhere on the map, leave inout an ID blank and hit OK
+- Click on the "node" tool to edit your training layer
+- Save layer as shapefile
 
 
 You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
