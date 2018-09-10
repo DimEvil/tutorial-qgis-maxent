@@ -59,6 +59,8 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 - Click on the "node" tool to edit your training layer
 - Save layer as shapefile
 
+  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon2.PNG)
+
 
 You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
 
