@@ -48,7 +48,7 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 - In Layers, choose Create "New shapefile"" layer
 - In the resulting window click the button for "polygon", click ok and name your polygon      `'Species_name'_TrainingRegionFlanders`
   
-  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG=250*)
+  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG=250){:height="36px" width="36px"}
   
 - Select your new layer (is highlighted) in the panels section
 - Hit the Edit button
