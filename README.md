@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # A Short Species Distribution Modeling Tutorial
 
 
@@ -62,7 +67,7 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 <a name="prepare_datasets"></a>
 ## Prepare Datasets, prepare the training area
 
-### Option 1: Create Flanders bouding box to clip Raster files
+### Option 1: Create Flanders bouding box in Qgis to clip Raster files
 
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
@@ -83,7 +88,7 @@ We have created a bounding box of Flanders, this box can be used as the polygon 
     
 
 
-### Option 2: Draw your own training polygon in Qgis
+### Option 2: Draw your own training polygon in Qgis to clip raster files
 
 - Open your (Cleaned) occurrences layes in Qgis
 - In Layers, choose Create "New shapefile"" layer
