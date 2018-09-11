@@ -105,7 +105,7 @@ We have created a bounding box of Flanders, this box can be used as the polygon 
 
 You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
 
-
+# Cropping the environmental data to your training region.
 
 ## Clipping RasterFiles with trainingRegion or bounding box
 
@@ -113,9 +113,12 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 	- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
 
+
       + Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
-      + Under the `Polygons` input line, select the **box.shp** shapefile from the drop-down menu. The rasters will be clipped using the extent of this polygon.
-      + Under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, but this time, change the output file type to **ASC** as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.asc**.
+      + Under the `Polygons` input line, select the **box.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
+      + Under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, but this time, change the output file type to **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
+      
+      
 
     ![data-prep5](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-05.png)
 
@@ -123,7 +126,7 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 2. Next, we will extract the occurrence points of the species we are interested in modeling.
 
-    - Inspect the threatened tree species database using tools like R or Excel. For this exercise, let us model the distributions of `Cinnamomum mercadoi` that were observed in the Polillo Islands.
+    - Inspect the threatened species using tools like R or Excel. For this exercise, let us model the distributions of `Papilio_machaon` that were observed in Flanders.
 
     - To select the species from the CSV file, we will use a few lines of code in R as follows:
     ```R
