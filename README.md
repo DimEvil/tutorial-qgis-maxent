@@ -39,7 +39,8 @@ MaxEnt will require two types of input datasets:
 
 2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data.
 
-	-Next, we will unzip the bio_16.zip file in the appropriate folders (Create folder named rasters for all your raster data).
+	- Create folder named rasters for all your raster data.
+	- Next, we will unzip the bio_16.zip file in the appropriate folder.
 	
 
 One variable, used frequently in niche modelling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). 
@@ -52,7 +53,7 @@ Alternatively you can download the file [here:] (https://github.com/DimEvil/tuto
 To prepare the datasets, we will also need **administrative boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the
 [download](http://biogeo.ucdavis.edu/data/gadm2.8/shp/PHL_adm_shp.zip) link provided (~22 MB, ZIP file). For this exercise we will use this file [FlandersWGS84](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Belgium/Vlaanderen_WGS84-20180703T080424Z-001.zip)
 
-`Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correct.`
+`Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.`
 
 
 
@@ -110,9 +111,8 @@ We have created a bounding box of Flanders, this box can be used as the polygon 
 
 You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
 
-# Cropping the environmental data to your training region.
 
-## Clipping RasterFiles with trainingRegion or bounding box
+# Clipping RasterFiles (environmental data) with trainingRegion or bounding box
 
 ![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master//screenshots/Qgis_data-prep-clip-raster1.PNG)
 
@@ -120,14 +120,24 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 
       + Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
-      + Under the `Polygons` input line, select the **box.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
+      + Under the `Polygons` input line, select the **box1.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
+
+You can also find the processed files here:
+      
+[Box1](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/box/box1.shp)
+[TrainingArea](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/trainingRegionFlanders/papilio_trainingRegionFlandersWGS84.shp)
+
       + Under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, but this time, change the output file type to **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
       
       
+![data-prep5](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-05.png)
 
-    ![data-prep5](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-05.png)
+    Repeat this for all other raster layers by following the same process.
+    
+# Converting the Tif files into *.asc files
 
-    Repeat this for all other raster layers by following the same process. You may also opt to run this through batch processing by clicking on the **`Run As a Batch Process...`** button.
+Maxent is very picky when it comes to the format of the files we can use. for the raster data, all should have exact the same resolution.
+
 
 2. Next, we will extract the occurrence points of the species we are interested in modeling.
 
