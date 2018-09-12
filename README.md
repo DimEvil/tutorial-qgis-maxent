@@ -116,27 +116,33 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 ![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master//screenshots/Qgis_data-prep-clip-raster1.PNG)
 
-	- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
+- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
 
 
-      + Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
-      + Under the `Polygons` input line, select the **box1.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
++ Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
++ Under the `Polygons` input line, select the **box1.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
 
 You can also find the processed files here:
       
 [Box1](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/box/box1.shp)
 [TrainingArea](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/trainingRegionFlanders/papilio_trainingRegionFlandersWGS84.shp)
 
-      + Under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, but this time, change the output file type to **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
+Under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, the output file type is **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
       
       
-![data-prep5](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-05.png)
-
     Repeat this for all other raster layers by following the same process.
     
 # Converting the Tif files into *.asc files
 
-Maxent is very picky when it comes to the format of the files we can use. for the raster data, all should have exact the same resolution.
+Maxent is very picky when it comes to the format of the files we can use. for the raster data, all should have exact the same resolution, bounding box and should be in the *.asc format. For the worldclim data this is no problem. If you like to use the altidude in your model. You need to give the topology data some extra tweaks. This is because of all the conversions and rounding errors.
+
+First, let's convert the clipped raster data, which is in .tif format to the *.asc format.
+
+- in Qgis, go to raster --> conversion --> translate
+
+![conversion]
+
+
 
 
 2. Next, we will extract the occurrence points of the species we are interested in modeling.
