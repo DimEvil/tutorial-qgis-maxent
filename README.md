@@ -47,7 +47,7 @@ One variable, used frequently in niche modelling is the altitude. The altitude i
 
 Alternatively you can download the file [here:] (https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/gt30w020n90.tif)
 
-![data-prep](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-create-geotiff.png)
+![data-prep](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-create-geotiff.PNG)
 
 
 To prepare the datasets, we will also need **administrative boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the
