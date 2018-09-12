@@ -140,7 +140,7 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
 
 - in Qgis, go to raster --> conversion --> translate
 
-![conversion]
+![conversion](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc.PNG)
 
 
 
