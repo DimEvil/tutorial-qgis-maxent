@@ -32,11 +32,7 @@ MaxEnt will require two types of input datasets:
 1. **Species occurrence data.** The species occurrence records are the geographic point locations or coordinates of species observations. For this exercise, we will use data downloaded from [GBIF](www.gbif.org). For this tutorial we used this dataset [data](https://doi.org/10.15468/dl.cu4aii) (249 KB, CSV file) [Papilio machaon](https://en.wikipedia.org/wiki/Papilio_machaon) occurrences in Flanders, Belgium. The dataset only holds occurrences between 1960 and 1990, because of the WorldClim data available. You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/csv/Papilio_machaon.csv). 
 	
 	- Create a folder for csv's and place the occurrence data there. Name your file Papilio_machaon 
-	- Clean your dataset
-		- remove all occurrences which do not pertain to Flanders
-		- remove all suspicious occurrences (occurrences in the ocean...)
-		- Check your desired occurrence precission.
-
+	
 2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data.
 
 	- Create folder named rasters for all your raster data.
@@ -139,15 +135,22 @@ Maxent is very picky when it comes to the format of the files we can use. for th
 First, let's convert the clipped raster data, which is in .tif format to the *.asc format.
 
 - in Qgis, go to raster --> conversion --> translate
+- Choose the tif you want to convert in "input layer"
+- Select outputlayer, name your file and choose .ASC as the extension
+- Make sure your target SRS is EPSG:4326
+- Select OK
 
 ![conversion](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc.PNG)
+![conversion2](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc2.PNG)
+
+If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor (Like notepad++) and make sure the bounding box is similar with the bounding box of the other climate variables.
 
 
+# extract the occurrence points of the species we are interested in modeling.
 
+## preparing your dataet in R
 
-2. Next, we will extract the occurrence points of the species we are interested in modeling.
-
-    - Inspect the threatened species using tools like R or Excel. For this exercise, let us model the distributions of `Papilio_machaon` that were observed in Flanders.
+    - Inspect the threatened species using tools like R or Openrefine. For this exercise, let us model the distributions of `Papilio_machaon` that were observed in Flanders.
 
     - To select the species from the CSV file, we will use a few lines of code in R as follows:
     ```R
@@ -165,6 +168,16 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
     Here, note that the search terms used include the species name and the source of the data based on the database. Also, only columns 2, 10, and 11 were selected and saved in the final CSV file, which corresponds to the columns 'Species', 'Lat', and 'Long'.
 
     Alternatively, you can download the [R script](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/Select.Species.R) and run this in R or RStudio.
+    
+# Prepare your data in Openrefine
+
+# Prepare your data in a worksheet
+
+- Clean your dataset
+		- remove all occurrences which do not pertain to Flanders
+		- remove all suspicious occurrences (occurrences in the ocean...)
+		- Check your desired occurrence precission.
+
 
 3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
 
