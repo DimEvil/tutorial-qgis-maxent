@@ -81,11 +81,11 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
       + Under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
       + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
 
-    ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
+![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
     
 We have created a bounding box of Flanders, this box can be used as the polygon to clip the raster files.     
     
-    ![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
+![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
     
 
 
