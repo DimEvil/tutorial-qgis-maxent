@@ -74,7 +74,7 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
     - Load the **vlaanderen_wgs84.shp** [shapefile](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84.shp) by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries. Make sure the shapefile you will use has the correct SRS. In most cases WGS84.
 
-    ![data-prep1](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
+![data-prep1](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
 
     - Next, we will create a polygon from the extent of the Flanders shapefile that we have just saved. Go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
 
