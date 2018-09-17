@@ -44,6 +44,17 @@ raw_data %<>%
   clean_names()               # Have sensible (lowercase) column names
 ```
 
+# Select Occurrences between 1960 and 1990
+
+```{r}
+raw_data %<>%
+  filter(year > 1960 & year < 1990)
+
+```
+
+
+
+
 # Select the columns needed (decimalLatitude, decimalLongitude, scientificName)
 
 For maxent niche modeling we need scientificName, decimalLatitude, decimalLongitude, in this order)
