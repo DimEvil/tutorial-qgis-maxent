@@ -78,18 +78,18 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
-    - Load the **vlaanderen_wgs84.shp** [shapefile](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84.shp) by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries. Make sure the shapefile you will use has the correct SRS. In most cases WGS84.
+  - in Qgis, load the **vlaanderen_wgs84.shp** [shapefile](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84.shp) by adding a vector layer from the **`Layer > Add Layer > Add Vector Layer...`** menu. This displays the municipal-level administrative boundaries. Make sure the shapefile you will use has the correct SRS. In most cases WGS84.
 
 ![data-prep1](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-01a.png)
 
-    - Next, we will create a polygon from the extent of the Flanders shapefile that we have just saved. Go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
-
-      + Under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
-      + Under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
+Next, we will create a polygon from the extent of the Flanders shapefile that we have just saved. 
+  - go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
+  - under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
+  - under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
 
 ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
     
-We have created a bounding box of Flanders, this box can be used as the polygon to clip the raster files.     
+We have created a bounding box of Flanders, this box **can** be used as the polygon to clip the raster files.     
     
 ![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
     
@@ -97,20 +97,22 @@ We have created a bounding box of Flanders, this box can be used as the polygon 
 
 ### Option 2: Draw your own training polygon in Qgis to clip raster files
 
-- Open your (Cleaned) occurrences layes in Qgis
-- In Layers, choose Create "New shapefile"" layer
-- In the resulting window click the button for "polygon", click ok and name your polygon      `'Species_name'_TrainingRegionFlanders`
+  - open your (cleaned) occurrences layes in Qgis
+  - in Layers, choose Create "New shapefile"" layer
+  - in the resulting window click the button for "polygon", click ok and name your polygon      `'Species_name'_TrainingRegionFlanders`
   
   ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG)
   
-- Select your new layer (is highlighted) in the panels section
-- Hit the Edit button
-- Choose "Create new polygon" button
-- Draw your Training Area
-  Every time you left click on the map, a dot will be created. QGIS will draw lines to connect these dots to create a polygon. If you mis-click, do not worry - you will be able to move points to the appropriate place.
-- Right click anywhere on the map, leave inout an ID blank and hit OK
-- Click on the "node" tool to edit your training layer
-- Save layer as shapefile
+  - select your new layer (is highlighted) in the panels section
+  - hit the Edit button
+  - choose "Create new polygon" button
+  - draw your Training Area
+
+Every time you left click on the map, a dot will be created. QGIS will draw lines to connect these dots to create a polygon. If you mis-click, do not worry - you will be able to move points to the appropriate place.
+
+  - right click anywhere on the map, leave inout an ID blank and hit OK
+  - click on the "node" tool to edit your training layer
+  - save layer as shapefile
 
   ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon2.PNG)
 
@@ -122,21 +124,19 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 ![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master//screenshots/Qgis_data-prep-clip-raster1.PNG)
 
-- Next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. Search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
-
-
-+ Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
-+ Under the `Polygons` input line, select the **box1.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
+  - next, go to **`Processing > Toolbox`** menu, which opens the `Processing Toolbox` panel. 
+  - search for the `Clip raster with polygon` function under the SAGA geoalgorithms and select this function. This will open the **`Clip Raster with Polygon`** dialog box.
+  - Under the `Input` drop-down menu, click `...` and navigate through your working directory and select one of the raster layers, say **biol1_210.tif**.
+  - under the `Polygons` input line, select the **box1.shp** shapefile (or the training region shapefile) from the drop-down menu. The rasters will be clipped using the extent of this polygon. Alternatively, choose the training region you created.
 
 You can also find the processed files here:
       
 [Box1](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/box/box1.shp)
 [TrainingArea](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/trainingRegionFlanders/papilio_trainingRegionFlandersWGS84.shp)
 
-Under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, the output file type is **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
+  - under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, the output file type is **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
       
-      
-    Repeat this for all other raster layers by following the same process.
+  *Repeat this for all other raster layers by following the same process.*
     
 # Converting the Tif files into *.asc files
 
@@ -156,7 +156,7 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
 If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor [notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) and make sure the bounding box is similar with the bounding box of the other climate variables.
 
 
-# extract the occurrence points of the species we are interested in modeling.
+# Extract the occurrence points of the species we are interested in modeling.
 
 Preparing your occurrence data for Maxent 
 
