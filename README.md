@@ -143,7 +143,7 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
 ![conversion](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc.PNG)
 ![conversion2](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc2.PNG)
 
-If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor (Like notepad++) and make sure the bounding box is similar with the bounding box of the other climate variables.
+If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor [notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) and make sure the bounding box is similar with the bounding box of the other climate variables.
 
 
 # extract the occurrence points of the species we are interested in modeling.
@@ -152,18 +152,13 @@ If you want to use the altitude.asc file in your modeling, you need to open the 
 
     - Inspect the threatened species using tools like R or Openrefine. For this exercise, let us model the distributions of `Papilio_machaon` that were observed in Flanders.
 
-    - To select the species from the CSV file, we will use a few lines of code in R as follows:
-    ```R
-    # This line reads the CSV file and stores it in a variable
-    # Note: change file path to your working directory
-    data <- read.csv(file="Geoferenced_threatenedforesttreespecies.csv", header=TRUE, sep=",")
-
-    # This line selects the species in our study area and stores it in a variable
-    polillo_cm <- subset(data, Species=="Cinnamomum mercadoi" & Source=="Clements, 2001", select=c(2,10:11))
-
-    # This line saves the selected species in a CSV file
-    write.csv(polillo_cm, file="polillo_cm.csv", row.names=FALSE)
-    ```
+    - To select the species from the CSV file, you can use this R script.
+    
+[R script Papilio](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/R%20dataset%20manipulation%20Papilio_machaon.Rmd)
+    
+    
+    
+    
 
     Here, note that the search terms used include the species name and the source of the data based on the database. Also, only columns 2, 10, and 11 were selected and saved in the final CSV file, which corresponds to the columns 'Species', 'Lat', and 'Long'.
 
