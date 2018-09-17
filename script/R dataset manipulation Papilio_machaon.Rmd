@@ -44,11 +44,14 @@ raw_data %<>%
   clean_names()               # Have sensible (lowercase) column names
 ```
 
-# Select the columns needed (DecimalLatitude, decimalLongitude, scientificName)
+# Select the columns needed (decimalLatitude, decimalLongitude, scientificName)
+
+For maxent niche modeling we need scientificName, decimalLatitude, decimalLongitude, in this order)
+
 
 ```{r}
 raw_data %<>%
-  select(decimallatitude, decimallongitude, scientificname)
+  select(scientificname, decimallatitude, decimallongitude)
   
 ```
 #Organize column scientificName, we only need genus and speciesname
