@@ -1,0 +1,68 @@
+---
+title: "Clean Data for SDM"
+author: "Dimitri Brosens"
+date: "12 september 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#' Load libraries:
+
+```{r}
+
+library(tidyverse) # For data transformations
+# None core tidyverse packages:
+library(magrittr)  # For %<>% pipes
+# Other packages
+library(janitor)   # For cleaning input data
+library(knitr)     # For nicer (kable) tables
+library(stringr)   # For string manipulation
+```
+
+#' Set file paths (all paths should be relative to this script):
+```{r}
+#set RAW files path
+raw_data = "../csv/papilio_machaon_SDM.csv"
+
+#set processed files path
+maxent_input_file = "../csv/processed/papilio_maxent.csv"
+```
+
+#Read raw data
+
+```{r}
+raw_data <- read.csv(file="../csv/Papilio_machaon.csv", header=TRUE, sep="\t")  #to read tab separated files
+```
+
+# Clean the data somewhat
+
+```{r}
+raw_data %<>%
+  remove_empty("rows") %>%    # Remove empty rows
+  clean_names()               # Have sensible (lowercase) column names
+```
+
+# Select the columns needed (DecimalLatitude, decimalLongitude, scientificName)
+
+```{r}
+raw_data %<>%
+  select(decimallatitude, decimallongitude, scientificname)
+  
+```
+#Organize column scientificName, we only need genus and speciesname
+
+```{r}
+raw_data %<>%
+  mutate(scientificname = recode(scientificname,"Papilio machaon Linnaeus, 1758" = "Papilio machaon"))
+```
+
+
+# write data
+
+```{r}
+write.csv(raw_data, file = maxent_input_file, na = "", row.names = FALSE, fileEncoding = "UTF-8")
+
+```
+
