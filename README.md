@@ -145,10 +145,10 @@ Maxent is very picky when it comes to the format of the files we can use. for th
 First, let's convert the clipped raster data, which is in .tif format to the *.asc format.
 
 - in Qgis, go to raster --> conversion --> translate
-- Choose the tif you want to convert in "input layer"
-- Select outputlayer, name your file and choose .ASC as the extension
-- Make sure your target SRS is EPSG:4326
-- Select OK
+- choose the tif you want to convert in "input layer"
+- select outputlayer, name your file and choose .ASC as the extension
+- make sure your target SRS is EPSG:4326
+- select OK
 
 ![conversion](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc.PNG)
 ![conversion2](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc2.PNG)
@@ -156,9 +156,9 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
 If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor [notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) and make sure the bounding box is similar with the bounding box of the other climate variables.
 
 
-# Extract the occurrence points of the species we are interested in modeling.
+#Extract the occurrence points of the species we are interested in modeling.
 
-Preparing your occurrence data for Maxent 
+For niche modeling in Maxent we need species occurrence records. They should be in csv format and the separator should be ",".  Preparing this file can be done in many tools. We woudl like to recommend *R* , *Openrefine* or *LibreOffice* Using Ms Excel might cause problems as the encoding of the .csv files by excel is not always accepted by Maxent.
 
 
 ## preparing your dataet in *R*
@@ -169,6 +169,24 @@ Preparing your occurrence data for Maxent
     
 [R script Papilio](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/R%20dataset%20manipulation%20Papilio_machaon.Rmd)
     
+ - open R studio
+ - start a new project in your maxent-Qgis directory
+ - choose new R markdown file
+ - copy paste the script in this file
+ - make sure your folder structure is correct
+        -[NicheModeelingWorkshop] [csv] -- [processed]
+                                    |
+                                    [rasters]
+                                    |
+                                    [script]
+                                    |
+                                    [Qgis]
+                                    
+ - run the script
+    - the script basically reads the file you downloaded from GBIF
+    - filters the data from 1960 to 1990 (this was already done in your GBIF download, it's an extra measure)
+    - selects the columns needed for Maxent (scientificName, decimalLatitude and decimalLongitude)
+    -and writes a csv file in a folder named processed
 
 # Prepare your data in *Openrefine*
 
