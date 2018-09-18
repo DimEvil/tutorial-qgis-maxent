@@ -168,6 +168,8 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
  - load needed layers
       - shapefile (shp)
       - occurrences (csv)
+      
+![cleanCSV]()
  - save your .csv as a shapefile
       - right click on the layer
       - choose save as ESRI-shape file
