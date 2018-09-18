@@ -228,6 +228,8 @@ In Openrefine
   - start new project
   - choose file downloaded with GBIF
   - remove unneeded columns (All except scientificName, decimalLatitude, decimalLongitude)
+    -in Column All, choose Re-order/Remove Columns
+    -or remove every column manually
   - clean scientificName (only genus an speciesname needed)
   - export data as csv file
 
