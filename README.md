@@ -232,6 +232,8 @@ In Openrefine
     -or remove every column manually
   - clean scientificName (only genus an speciesname needed)
   - export data as csv file
+  
+![removeColumns](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-remove_columns_Refine.PNG)
 
 
 
@@ -240,7 +242,8 @@ In Openrefine
 - Clean your dataset
 		- remove all occurrences which do not pertain to Flanders
 		- remove all suspicious occurrences (occurrences in the ocean...)
-		- check your desired occurrence precission.
+		- check your desired occurrence precission
+		- keep only scientificName, decimalLatitude & decimalLongitude
 		
 		
 # Remove unneeded occurrences
