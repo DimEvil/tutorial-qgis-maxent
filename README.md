@@ -184,19 +184,15 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
       - click select objects with one click
       - select the erroneous point
       - delete the point (del)
+      - save your shapefile as a .csv (This is the file we will use for further processing)
 
 ![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanSHP.PNG)
 ![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanSHPEditButton.PNG)
 
-      
-- save your shapefile as a .csv
 
 
 
-
-
-
-## preparing your dataet in *R*
+## Further preparing your dataet in *R*
 
 - Inspect the threatened species using tools like R or Openrefine. For this exercise, let us model the distributions of `Papilio_machaon` that were observed in Flanders.
 
@@ -225,7 +221,7 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
     - selects the columns needed for Maxent (scientificName, decimalLatitude and decimalLongitude)
     - and writes a csv file in a folder named processed
 
-# Prepare your data in *Openrefine*
+# Further preparing your data in *Openrefine*
 
 In Openrefine 
 
@@ -237,7 +233,7 @@ In Openrefine
 
 
 
-# Prepare your data in a *worksheet*
+# Further preparing your data in a *worksheet*
 
 - Clean your dataset
 		- remove all occurrences which do not pertain to Flanders
