@@ -169,19 +169,25 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
       - shapefile (shp)
       - occurrences (csv)
       
-![cleanCSV]()
+![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanCSV.PNG)
  - save your .csv as a shapefile
       - right click on the layer
       - choose save as ESRI-shape file
       - choose the right folder
       - save as desired_name_shape
       - click add layer to map
+
+
       
 - remove occurrences from a shapefile
       - click the Edit button
       - click select objects with one click
       - select the erroneous point
       - delete the point (del)
+
+![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanSHP.PNG)
+![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanSHPEditButton.PNG)
+
       
 - save your shapefile as a .csv
 
