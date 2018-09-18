@@ -40,6 +40,8 @@ There are two types of datasets required in MaxEnt; the species occurrence recor
 	- download and name your file Papilio_machaon 
 		
 You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/csv/Papilio_machaon.csv).
+
+
 	
 2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data.
 
@@ -160,6 +162,31 @@ If you want to use the altitude.asc file in your modeling, you need to open the 
 
 For niche modeling in Maxent we need species occurrence records. They should be in csv format and the separator should be ",".  Preparing this file can be done in many tools. We woudl like to recommend *R* , *Openrefine* or *LibreOffice* Using Ms Excel might cause problems as the encoding of the .csv files by excel is not always accepted by Maxent.
 
+We need to be sure that all the occurrences we will use for our Niche modeling are within the training area. We will clean our occurrencs in Qgis.
+
+ - open Qgis
+ - load needed layers
+      - shapefile (shp)
+      - occurrences (csv)
+ - save your .csv as a shapefile
+      - right click on the layer
+      - choose save as ESRI-shape file
+      - choose the right folder
+      - save as desired_name_shape
+      - click add layer to map
+      
+- remove occurrences from a shapefile
+      - click the Edit button
+      - click select objects with one click
+      - select the erroneous point
+      - delete the point (del)
+      
+- save your shapefile as a .csv
+
+
+
+
+
 
 ## preparing your dataet in *R*
 
@@ -174,21 +201,31 @@ For niche modeling in Maxent we need species occurrence records. They should be 
  - choose new R markdown file
  - copy paste the script in this file
  - make sure your folder structure is correct
-        -[NicheModeelingWorkshop] [csv] -- [processed]
+        -[NicheModelingWorkshop]  [csv] -- [processed]
                                     |
-                                    [rasters]
+                                  [rasters]
                                     |
-                                    [script]
+                                  [script]
                                     |
-                                    [Qgis]
+                                  [Qgis]
+                                    |
+                                  [shapefiles]
                                     
  - run the script
     - the script basically reads the file you downloaded from GBIF
     - filters the data from 1960 to 1990 (this was already done in your GBIF download, it's an extra measure)
     - selects the columns needed for Maxent (scientificName, decimalLatitude and decimalLongitude)
-    -and writes a csv file in a folder named processed
+    - and writes a csv file in a folder named processed
 
 # Prepare your data in *Openrefine*
+
+In Openrefine 
+
+  - start new project
+  - choose file downloaded with GBIF
+  - remove unneeded columns (All except scientificName, decimalLatitude, decimalLongitude)
+  - clean scientificName (only genus an speciesname needed)
+  - export data as csv file
 
 
 
@@ -197,7 +234,10 @@ For niche modeling in Maxent we need species occurrence records. They should be 
 - Clean your dataset
 		- remove all occurrences which do not pertain to Flanders
 		- remove all suspicious occurrences (occurrences in the ocean...)
-		- Check your desired occurrence precission.
+		- check your desired occurrence precission.
+		
+		
+# Remove unneeded occurrences
 
 
 3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
