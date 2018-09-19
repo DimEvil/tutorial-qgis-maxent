@@ -285,11 +285,10 @@ Leave the other advanced settings in their default for now. Then, click `Run` an
 
     - Load the resulting **ASC** file in QGIS from the **`Layer > Add Layer > Add Raster Layer...`** menu. Then, change the styling of the raster layer by going to **`Layer > Properties...`** menu, or double-clicking on the layer under the `Layers Panel`. Change the styling of the raster layer as shown on the image below.
 
-    ![maxent2](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/maxent_01.png)
 
     The styling of the raster layer has been changed similar to the image below, which shows the logistic output of the MaxEnt's species distribution model.
 
-    ![maxent3](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/maxent_03.png)
+    ![maxent3](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/screenshots/maxent_03.png)
 
 **Congratulations!** You have now made your first species distribution model using QGIS, R, and MaxEnt.
 
