@@ -79,7 +79,7 @@ One variable, used frequently in niche modeling is the altitude. The altitude is
 To prepare the datasets, we will also need **boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the
 [download](http://biogeo.ucdavis.edu/data/gadm2.8/shp/PHL_adm_shp.zip) link provided (~22 MB, ZIP file).
 
-Because most of the *Papilio* occurrences are situated within Flanders (We can only use the occurrences we have), we will use the administrative boundary of flanders in this exercise.
+Because most of the *Papilio* occurrences are situated within Flanders (We can only use the occurrences we have), we will use the administrative boundary of flanders in this exercise. Off course, you can also create your own boundary(trainingRegion).
 
 For this exercise we will use this file 
 
@@ -87,7 +87,7 @@ For this exercise we will use this file
   -download the [FlandersWGS84](https://drive.google.com/open?id=1Q7Q9Tcp5KTrX3Dhtbyy8QfggK8OQWvLg) file in your raster folder
 
 
-`Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.`
+Now you can draw easily a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.
 
 
 
@@ -104,9 +104,34 @@ For this exercise we will use this file
 
 ## Prepare Datasets
 
+The environmental layers we need to download, do have a very large extent (Europe). For the niche modeling, we can lower the size of our files, by clipping the raster files with the polygon. This means that we will only use the environmental data for the polygons we want. We propose 2 options, or we can create the extent of our Flanders shapefile (faster, but less relevant). This will result in a bounding box we can use to clip the raster files. Or we can simply draw our training region. This should be based on the available record and knowledge of the species. We recommend you to draw your own training area when doing niche modeling.
+
 ### Preparing the Study area
 
-#### Option 1: Create Flanders bouding box in Qgis to clip Raster files
+
+#### Option 1: Draw your trainingArea polygon in Qgis to clip raster files (recommended)
+
+  - open your (cleaned) occurrences layes in Qgis
+  - open your WGS84 Flanders shapefile in Qgis (as reference)
+  - in Layers, choose Create "New shapefile"" layer
+  - in the resulting window click the button for "polygon", click ok and name your polygon `'Species_name'_TrainingRegionFlanders`
+  
+  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG)
+  
+  - select your new layer (is highlighted) in the panels section
+  - hit the Edit button
+  - choose "Create new polygon" button
+  - draw your Training Area
+
+Every time you left click on the map, a dot will be created. QGIS will draw lines to connect these dots to create a polygon. If you mis-click, do not worry - you will be able to move points to the appropriate place.
+
+  - right click anywhere on the map, leave inout an ID blank and hit OK
+  - click on the "node" tool to edit your training layer (if needed)
+  - save layer as shapefile
+
+  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon2.PNG)
+  
+`#### Option 2: Create Flanders bouding box in Qgis to clip Raster files (faster)
 
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
@@ -124,30 +149,7 @@ Next, we will create a polygon from the extent of the Flanders shapefile that we
     
 We have created a bounding box of Flanders, this box **can** be used as the polygon to clip the raster files.     
     
-![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
-    
-
-
-#### Option 2: Draw your own training polygon in Qgis to clip raster files
-
-  - open your (cleaned) occurrences layes in Qgis
-  - in Layers, choose Create "New shapefile"" layer
-  - in the resulting window click the button for "polygon", click ok and name your polygon      `'Species_name'_TrainingRegionFlanders`
-  
-  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon.PNG)
-  
-  - select your new layer (is highlighted) in the panels section
-  - hit the Edit button
-  - choose "Create new polygon" button
-  - draw your Training Area
-
-Every time you left click on the map, a dot will be created. QGIS will draw lines to connect these dots to create a polygon. If you mis-click, do not worry - you will be able to move points to the appropriate place.
-
-  - right click anywhere on the map, leave inout an ID blank and hit OK
-  - click on the "node" tool to edit your training layer
-  - save layer as shapefile
-
-  ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon2.PNG)
+![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)`
 
 
 #### Clipping RasterFiles (environmental data) with trainingRegion or bounding box
