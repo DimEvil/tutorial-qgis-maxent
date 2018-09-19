@@ -158,12 +158,12 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
 - select OK
 
 ![conversion](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc.PNG)
-![conversion2](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc2.PNG)
-
-If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor [notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) and make sure the bounding box is similar with the bounding box of the other climate variables.
 
 ![conversion3](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc2.PNG)
 
+If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor [notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) and make sure the bounding box is similar with the bounding box of the other climate variables.
+
+![conversion4](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-altitude_notepad.PNG)
 
 #Extract the occurrence points of the species we are interested in modeling.
 
@@ -176,7 +176,7 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
       - shapefile (shp)
       - occurrences (csv)
       
-![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-altitude_notepad.PNG)
+
 
  - save your .csv as a shapefile
       - right click on the layer
