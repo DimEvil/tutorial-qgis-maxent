@@ -99,7 +99,7 @@ For this exercise we will use this file
 
 
 ![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
-  *note* The study area should never be dependent on country borders. the study area needs to contain validated occurrences of the species modelled.
+  *note* The study area should never be dependent on country borders. The study area needs to contain validated occurrences of the species modeled.
 
 
 ## Prepare Datasets
@@ -161,8 +161,8 @@ Every time you left click on the map, a dot will be created. QGIS will draw line
 
 You can also find the processed files here:
       
-[box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s) (Don't forget to unzip)
-[TrainingArea](https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T])(don't forget to unzip)
+- [box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s) (Don't forget to unzip)
+- [TrainingArea](https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T])(don't forget to unzip)
 
   - under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, the output file type is **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
       
