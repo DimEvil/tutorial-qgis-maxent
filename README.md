@@ -28,7 +28,7 @@ All the files used and processed in this tutorial can be downloaded here, just i
 - [Bio16_tif](https://drive.google.com/open?id=193npyntRq7EF0j4ceQTnjgU2L8nTGLdB)
 - [topoData](https://drive.google.com/open?id=1blgG2DyLQgsk6tP2DLLXlmdg7cP5Xxbm)
 - [box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s)
-- [TrainingAreaFlanders]([https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T]
+- [TrainingAreaFlanders]([https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T)
 - [FlandersWGS84](https://drive.google.com/open?id=1Q7Q9Tcp5KTrX3Dhtbyy8QfggK8OQWvLg)
 - [Papilio_processed](https://drive.google.com/open?id=15cC0ej87ALz4Wx9SVXdNJzoFfQ6opc4X)
 - [clippedRasterFiles_ASC](https://drive.google.com/open?id=1cmJtYIDVBNELxhfbHnFLWUglGnNPxcrA)
