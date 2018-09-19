@@ -31,13 +31,15 @@ All the files used and processed in this tutorial can be downloaded here, just i
 - [box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s)
 - [TrainingAreaFlanders](https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T)
 - [FlandersWGS84](https://drive.google.com/open?id=1Q7Q9Tcp5KTrX3Dhtbyy8QfggK8OQWvLg)
-- [Papilio_processed](https://drive.google.com/open?id=15cC0ej87ALz4Wx9SVXdNJzoFfQ6opc4X)
+- [Papilio_processed](https://drive.google.com/open?id=12gYntp_U3V-2T_xkKDAdoIqS50LlCYrK)
 - [clippedRasterFiles_ASC](https://drive.google.com/open?id=1cmJtYIDVBNELxhfbHnFLWUglGnNPxcrA)
 - [clippedRasterFiles_TIF](https://drive.google.com/open?id=1BcTbqqgtMpZwoNC6s7Xgu9B5GFaQndSR)
 
 ## Scripts
 
 [R script Papilio](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/R%20dataset%20manipulation%20Papilio_machaon.Rmd)
+
+[R script Maxent_example]
 
 ## Introduction
 
@@ -259,6 +261,7 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
  - run the script
     - the script basically reads the file you downloaded from GBIF
     - filters the data from 1960 to 1990 (this was already done in your GBIF download, it's an extra measure)
+    - removes duplicate values
     - selects the columns needed for Maxent (scientificName, decimalLatitude and decimalLongitude)
     - and writes a csv file in a folder named processed
 
@@ -272,6 +275,12 @@ In Openrefine
     -in Column All, choose Re-order/Remove Columns
     -or remove every column manually
   - clean scientificName (only genus an speciesname needed)
+  - Remove duplicates
+    - sort
+    - choose reorder row permanently
+    - choose edit cells on decimalLatitude --> blank down
+      - remove blanked out cells by text facetting on decimalLatitude
+      - in column All -> edit rown --> remove all matching rows
   - export data as csv file
   
 ![removeColumns](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-remove_columns_Refine.PNG)
