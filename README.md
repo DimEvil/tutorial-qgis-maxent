@@ -45,7 +45,7 @@ You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxen
 	
 2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data.
 
-One variable, used frequently in niche modelling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). You should go to [earthExplorer](https://earthexplorer.usgs.gov/), create a login and download the data.
+One variable, used frequently in niche modeling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). You should go to [earthExplorer](https://earthexplorer.usgs.gov/), create a login and download the data.
 
   - create folder for your raster data.Name your folder [rasters]
 	- next, we will unzip the bio_16.zip file in the appropriate folder.
@@ -62,7 +62,7 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
   -download the [FlandersWGS84] file in your raster folder
 
 
-`Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modelling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.`
+`Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.`
 
 
 <a name="study_area"></a>
@@ -71,7 +71,10 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 
 **Flanders** Flanders (Dutch: Vlaanderen [ˈvlaːndərə(n)] (About this sound listen), French: Flandre [flɑ̃dʁ], German: Flandern [ˈflandɐn]) is the Dutch-speaking northern portion of Belgium, although there are several overlapping definitions, including ones related to culture, language, politics and history. It is one of the communities, regions and language areas of Belgium. The demonym associated with Flanders is Fleming, while the corresponding adjective is Flemish. The official capital of Flanders is Brussels,[1] although the Brussels Capital Region has an independent regional government, and the government of Flanders only oversees the community aspects of Flanders life there such as (Flemish) culture and education.
 
+
+
 ![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
+  *note* The study area should never be dependent on country borders. the study area needs to contain validated occurrences of the species modelled.
 
 <a name="prepare_datasets"></a>
 ## Prepare Datasets, prepare the training area
@@ -205,7 +208,7 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
  - choose new R markdown file
  - copy paste the script in this file
  - make sure your folder structure is correct
-        -[NicheModelingWorkshop]  [csv] -- [processed]
+        -[NichemodelingWorkshop]  [csv] -- [processed]
                                     |
                                   [rasters]
                                     |
@@ -248,10 +251,10 @@ In Openrefine
 		
 
 
-# 3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
+3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
 
-    - Load the clipped environmental raster layers by adding them from the **`Layer > Add Layer > Add Raster Layer...`** menu. Remember that these are the **.ASC** files.
-    ![data-prep6](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-06.png)
+  - Load the clipped environmental raster layers by adding them from the **`Layer > Add Layer > Add Raster Layer...`** menu. Remember that these are the **.ASC** files.
+   ![data-prep6](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-06.png)
 
     - Load species occurrence data CSV file by adding it from the **`Layer > Add Layer > Add Delimited Text Layer...`** menu.
     ![data-prep7](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-07.png)
@@ -280,7 +283,7 @@ Leave the other advanced settings in their default for now. Then, click `Run` an
 
 3. Once the MaxEnt software completes its data processing:
 
-    - Load the resulting **ASC** file in QGIS from the **`Layer > Add Layer > Add Raster Layer...`** menu. Then, change the styling of the raster layer by going to **`Layer > Properties...`** menu, or double-clicking on the layer under the `Layers Panel`. Change the styling of the raster layer as shown on the image below. Alternatively, you can also load the layer styling using this [QML](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/sdm_logistic.qml) file (only applicable to the logistic model output).
+    - Load the resulting **ASC** file in QGIS from the **`Layer > Add Layer > Add Raster Layer...`** menu. Then, change the styling of the raster layer by going to **`Layer > Properties...`** menu, or double-clicking on the layer under the `Layers Panel`. Change the styling of the raster layer as shown on the image below.
 
     ![maxent2](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/maxent_01.png)
 
@@ -303,9 +306,9 @@ Morales, N.S., Fernandez, I.C. & Baca-Gonzalez, V. (2017) MaxEnt’s parameter c
 
 Phillips, S.J., Anderson, R.P., Dudik, M., Schapire, R.E. & Blair, M.E. (2017) Opening the black box: an open-source release of Maxent. Ecography, 40, 887–893.[(DOI)](https://dx.doi.org/10.1111/ecog.03049)
 
-Phillips, S.J., Anderson, R.P. & Schapire, R.E. (2006) Maximum entropy modeling of species geographic distributions. Ecological Modelling, 190, 231–259. [(DOI)](https://dx.doi.org/10.1016/j.ecolmodel.2005.03.026)
+Phillips, S.J., Anderson, R.P. & Schapire, R.E. (2006) Maximum entropy modeling of species geographic distributions. Ecological modeling, 190, 231–259. [(DOI)](https://dx.doi.org/10.1016/j.ecolmodel.2005.03.026)
 
-Yackulic, C.B., Chandler, R., Zipkin, E.F., Royle, J.A., Nichols, J.D., Campbell Grant, E.H. & Veran, S. (2013) Presence-only modelling using MAXENT: when can we trust the inferences? Methods in Ecology and Evolution, 4, 236–243. [(DOI)](https://dx.doi.org/10.1111/2041-210x.12004)
+Yackulic, C.B., Chandler, R., Zipkin, E.F., Royle, J.A., Nichols, J.D., Campbell Grant, E.H. & Veran, S. (2013) Presence-only modeling using MAXENT: when can we trust the inferences? Methods in Ecology and Evolution, 4, 236–243. [(DOI)](https://dx.doi.org/10.1111/2041-210x.12004)
 
 
 <a name="references"></a>
