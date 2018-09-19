@@ -64,7 +64,7 @@ Because most of the *Papilio* occurrences are situated within Flanders (We can o
 For this exercise we will use this file 
 
 
-  -download the [FlandersWGS84](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/Flanders/Vlaanderen_WGS84-20180703T080424Z-001.zip) file in your raster folder
+  -download the [FlandersWGS84](https://drive.google.com/open?id=1Q7Q9Tcp5KTrX3Dhtbyy8QfggK8OQWvLg) file in your raster folder
 
 
 `Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.`
