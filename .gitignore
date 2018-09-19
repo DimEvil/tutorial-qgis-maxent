@@ -45,7 +45,8 @@ Qgis/BBPFWorkshop.qgs
 *.stx
 rasters/wc0.5_europe/altitude.asc
 *.prj
-
 *.mxe
 *.info
 srtm_samen.zip
+acaule.csv
+acselRasterData.csv
