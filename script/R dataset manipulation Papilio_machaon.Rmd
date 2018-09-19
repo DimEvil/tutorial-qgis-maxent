@@ -36,22 +36,17 @@ maxent_input_file = "../csv/processed/papilio_maxent.csv"
 raw_data <- read.csv(file="../csv/Papilio_machaon.csv", header=TRUE, sep="\t")  #to read tab separated files
 ```
 
-# Clean the data somewhat
+# Filter the data 
+ remove duplicates
+ choose occurrences between 1960 & 1990
 
 ```{r}
 raw_data %<>%
   remove_empty("rows") %>%    # Remove empty rows
+  filter(year > 1960 & year < 1990)  %>% 
+  distinct (scientificname,decimallatitude,decimallongitude, .keep_all = TRUE)  %>% 
   clean_names()               # Have sensible (lowercase) column names
 ```
-
-# Select Occurrences between 1960 and 1990
-
-```{r}
-raw_data %<>%
-  filter(year > 1960 & year < 1990)
-
-```
-
 
 
 
