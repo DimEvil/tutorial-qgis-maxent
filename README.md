@@ -264,7 +264,7 @@ In Openrefine
     - In the **`Create a Layer from a Delimited Text File`** dialog box, select the CSV file by navigating to the file in your working directory. Once it is opened, the species records and their coordinates will be shown in the lower part of the dialog box. In the `X field` and `Y field` drop-down menus, select 'Long' and 'Lat' columns, respectively.
    
 
-<a name="model_species_distribution"></a>
+<a name="#model_species_distribution"></a>
 ## Model Species Distributions
 We are now ready to create our first species distribution model using MaxEnt.
 
