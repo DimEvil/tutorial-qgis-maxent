@@ -19,6 +19,21 @@ This repository is a fork from (@dondealban) and contains a short tutorial for c
 - [License](#license)
 - [Want to Contribute?](#contribute)
 
+## Files
+
+[Papilio_occurrences_raw](https://drive.google.com/open?id=1D_16xvsOl4zroYbTr8ixXkY3Skikam41)
+[Bio_16](https://drive.google.com/open?id=1blgG2DyLQgsk6tP2DLLXlmdg7cP5Xxbm)
+[topoData](https://drive.google.com/open?id=1blgG2DyLQgsk6tP2DLLXlmdg7cP5Xxbm)
+[box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s)
+[TrainingArea]((here)[https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T]
+[FlandersWGS84](https://drive.google.com/open?id=1Q7Q9Tcp5KTrX3Dhtbyy8QfggK8OQWvLg)
+[Papilio_processed](https://drive.google.com/open?id=15cC0ej87ALz4Wx9SVXdNJzoFfQ6opc4X)
+[clippedRasterFiles_ASC](https://drive.google.com/open?id=1cmJtYIDVBNELxhfbHnFLWUglGnNPxcrA)
+[clippedRasterFiles_TIF](https://drive.google.com/open?id=1BcTbqqgtMpZwoNC6s7Xgu9B5GFaQndSR)
+
+## Scripts
+
+[R script Papilio](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/R%20dataset%20manipulation%20Papilio_machaon.Rmd)
 
 <a name="download"></a>
 ## Download and Installation
@@ -43,13 +58,13 @@ You can also find the file [here](https://drive.google.com/open?id=1D_16xvsOl4zr
 
 
 	
-2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data.
+2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://drive.google.com/open?id=1OFxucSsPM5LSJH6KfUFaEqMAJba9SJV7) for present data.
 
 One variable, used frequently in niche modeling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). You should go to [earthExplorer](https://earthexplorer.usgs.gov/). You have to create a login and download the data.
 
    - create folder for your raster data.Name your folder [rasters]
    - next, we will unzip the bio_16.zip file in the appropriate folder.
-   - download the topodata from earthExplorer or alternatively find it [here:] (https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/gt30w020n90.tif)
+   - download the topodata from earthExplorer or alternatively find it [here:](https://drive.google.com/open?id=1blgG2DyLQgsk6tP2DLLXlmdg7cP5Xxbm)
 
 
 
@@ -99,7 +114,6 @@ Next, we will create a polygon from the extent of the Flanders shapefile that we
   - under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
   - under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
   
-You can find the box shapefile here  ,remember to unzip your file.
 
 ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
     
@@ -143,7 +157,7 @@ Every time you left click on the map, a dot will be created. QGIS will draw line
 You can also find the processed files here:
       
 [box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s) (Don't forget to unzip)
-[TrainingArea]((here)[https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T])(don't forget to unzip)
+[TrainingArea](https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T])(don't forget to unzip)
 
   - under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, the output file type is **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
       
@@ -257,7 +271,7 @@ In Openrefine
 		- check your desired occurrence precission
 		- keep only scientificName, decimalLatitude & decimalLongitude
 		
-You can find a cleaned version of the occurrences file [here](https://drive.google.com/open?id=15cC0ej87ALz4Wx9SVXdNJzoFfQ6opc4X)		
+You can find a processed version of the occurrences file [here](https://drive.google.com/open?id=15cC0ej87ALz4Wx9SVXdNJzoFfQ6opc4X)		
 
 
 3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
