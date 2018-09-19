@@ -45,11 +45,11 @@ You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxen
 	
 2. **Environmental predictors.** The environmental covariates consist of raster data that contain either continuous or categorical values such as precipitation, temperature, elevation, etc. We will be using the [WorldClim](http://www.worldclim.org) raster datasets. WorldClim is a set of gridded global climate data layers, which can be used for mapping and ecological modeling. For this exercise, we will use [WorldClim v.1.4 Current conditions](http://www.worldclim.org/current) (or interpolations of observed data from 1960-1990). We will need the highest resolution data available provided at 30 arc-seconds (~1 km);  You can read [Hijmans et al. (2005)](#hijmans_etal_2005) for more information about the climate data layers. The WorldClim 0.5 (Bio16_zip) dataset for Europe can be downloaded [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/bio_16.zip) for present data.
 
-One variable, used frequently in niche modeling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). You should go to [earthExplorer](https://earthexplorer.usgs.gov/), create a login and download the data.
+One variable, used frequently in niche modeling is the altitude. The altitude is not included in the WorldClim dataset. We can use the GTOPO30 dataset. It will provide us the altitude information on a similar resolution. The GTOP30 data can be downloaded [here](https://lta.cr.usgs.gov/GTOPO30). You should go to [earthExplorer](https://earthexplorer.usgs.gov/). You have to create a login and download the data.
 
-  - create folder for your raster data.Name your folder [rasters]
-	- next, we will unzip the bio_16.zip file in the appropriate folder.
-	- download the topodata from earthExplorer or alternatively find it [here:] (https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/gt30w020n90.tif)
+   - create folder for your raster data.Name your folder [rasters]
+   - next, we will unzip the bio_16.zip file in the appropriate folder.
+   - download the topodata from earthExplorer or alternatively find it [here:] (https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/rasters/wc0.5_europe/gt30w020n90.tif)
 
 
 
@@ -65,7 +65,7 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 `Alternatively you can draw a polygon which you can use for creating the training area for niche modeling. Your training area shape should contain all the occurrences you need to use for your niche modeling. You need to save this polygon as a .shp file so you can clip the environmental raster data correctly.`
 
 
-<a name="study_area"></a>
+
 ## Study Area
 **Belgium** Belgium (/ˈbɛldʒəm/ (About this sound listen) BEL-jəm),[A] officially the Kingdom of Belgium, is a country in Western Europe bordered by France, the Netherlands, Germany and Luxembourg. A small and densely populated country, it covers an area of 30,528 square kilometres (11,787 sq mi) and has a population of more than 11 million. Straddling the cultural boundary between Germanic and Latin Europe, Belgium is home to two main linguistic groups: the Dutch-speaking, mostly Flemish community, which constitutes about 59 percent of the population, and the French-speaking, mostly Walloon population, which comprises about 40 percent of all Belgians. Additionally, there is a small ~1 percent group of German speakers who live in the East Cantons.
 
@@ -76,10 +76,12 @@ To prepare the datasets, we will also need **administrative boundary** data. We 
 ![study-area](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/poster/N2000Belgium.jpg)
   *note* The study area should never be dependent on country borders. the study area needs to contain validated occurrences of the species modelled.
 
-<a name="prepare_datasets"></a>
-## Prepare Datasets, prepare the training area
 
-### Option 1: Create Flanders bouding box in Qgis to clip Raster files
+## Prepare Datasets
+
+### Preparing the Study area
+
+#### Option 1: Create Flanders bouding box in Qgis to clip Raster files
 
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
@@ -100,7 +102,7 @@ We have created a bounding box of Flanders, this box **can** be used as the poly
     
 
 
-### Option 2: Draw your own training polygon in Qgis to clip raster files
+#### Option 2: Draw your own training polygon in Qgis to clip raster files
 
   - open your (cleaned) occurrences layes in Qgis
   - in Layers, choose Create "New shapefile"" layer
@@ -125,7 +127,7 @@ Every time you left click on the map, a dot will be created. QGIS will draw line
 You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
 
 
-# Clipping RasterFiles (environmental data) with trainingRegion or bounding box
+#### Clipping RasterFiles (environmental data) with trainingRegion or bounding box
 
 ![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master//screenshots/Qgis_data-prep-clip-raster1.PNG)
 
@@ -262,7 +264,7 @@ In Openrefine
     - In the **`Create a Layer from a Delimited Text File`** dialog box, select the CSV file by navigating to the file in your working directory. Once it is opened, the species records and their coordinates will be shown in the lower part of the dialog box. In the `X field` and `Y field` drop-down menus, select 'Long' and 'Lat' columns, respectively.
    
 
-
+<a name="model_species_distribution"></a>
 ## Model Species Distributions
 We are now ready to create our first species distribution model using MaxEnt.
 
