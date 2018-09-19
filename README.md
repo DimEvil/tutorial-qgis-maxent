@@ -221,7 +221,7 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
     - selects the columns needed for Maxent (scientificName, decimalLatitude and decimalLongitude)
     - and writes a csv file in a folder named processed
 
-# Further preparing your data in *Openrefine*
+## Further preparing your data in *Openrefine*
 
 In Openrefine 
 
@@ -237,7 +237,7 @@ In Openrefine
 
 
 
-# Further preparing your data in a *worksheet*
+## Further preparing your data in a *worksheet*
 
 - Clean your dataset
 		- remove all occurrences which do not pertain to Flanders
@@ -248,7 +248,7 @@ In Openrefine
 		
 
 
-3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
+# 3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
 
     - Load the clipped environmental raster layers by adding them from the **`Layer > Add Layer > Add Raster Layer...`** menu. Remember that these are the **.ASC** files.
     ![data-prep6](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-06.png)
@@ -257,14 +257,13 @@ In Openrefine
     ![data-prep7](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-07.png)
 
     - In the **`Create a Layer from a Delimited Text File`** dialog box, select the CSV file by navigating to the file in your working directory. Once it is opened, the species records and their coordinates will be shown in the lower part of the dialog box. In the `X field` and `Y field` drop-down menus, select 'Long' and 'Lat' columns, respectively.
-    ![data-prep8](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-08.png)
+   
 
 
-<a name="model_species_distribution"></a>
 ## Model Species Distributions
 We are now ready to create our first species distribution model using MaxEnt.
 
-1. Open MaxEnt and load the `Samples` and `Environmental Layers` by navigating to the respective directories of those files. Ensure that the tick boxes of all files are checked, and that the `Environmental Layers` files are all 'Continuous' types.
+1. Open MaxEnt and load the `occurrences` and `Environmental Layers` by navigating to the respective directories of those files. Ensure that the tick boxes of all files are checked, and that the `Environmental Layers` files are all 'Continuous' types.
 
 ![maxent1](https://github.com/dimEvil/tutorial-qgis-maxent/blob/master/screenshots/maxent_01.png)
 
@@ -283,7 +282,7 @@ Leave the other advanced settings in their default for now. Then, click `Run` an
 
     - Load the resulting **ASC** file in QGIS from the **`Layer > Add Layer > Add Raster Layer...`** menu. Then, change the styling of the raster layer by going to **`Layer > Properties...`** menu, or double-clicking on the layer under the `Layers Panel`. Change the styling of the raster layer as shown on the image below. Alternatively, you can also load the layer styling using this [QML](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/sdm_logistic.qml) file (only applicable to the logistic model output).
 
-    ![maxent2](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/maxent_02.png)
+    ![maxent2](https://github.com/dondealban/tutorial-qgis-maxent/blob/master/screenshots/maxent_01.png)
 
     The styling of the raster layer has been changed similar to the image below, which shows the logistic output of the MaxEnt's species distribution model.
 
