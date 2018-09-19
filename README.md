@@ -98,6 +98,8 @@ Next, we will create a polygon from the extent of the Flanders shapefile that we
   - go to **`Vector > Research Tools > Polygon from Layer Extent`** menu.
   - under the `Input Layer` drop-down menu, select the newly created **vlaanderen_wgs84.shp** shapefile.
   - under the `Extent` input line, select **`Save to File`** from the menu to save the file in your working directory. Then, click `Run` to create another shapefile called **box1.shp**, which consists of a polygon covering the extent of the study area.
+  
+You can find the box shapefile here  ,remember to unzip your file.
 
 ![data-prep4](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-04.png)
     
@@ -129,9 +131,6 @@ Every time you left click on the map, a dot will be created. QGIS will draw line
   ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon2.PNG)
 
 
-You can find a usable training region for Flanders (here)[https://github.com/DimEvil/tutorial-qgis-maxent/tree/master/shp/trainingRegionFlanders]
-
-
 #### Clipping RasterFiles (environmental data) with trainingRegion or bounding box
 
 ![data-prep5](https://github.com/dimevil/tutorial-qgis-maxent/blob/master//screenshots/Qgis_data-prep-clip-raster1.PNG)
@@ -143,8 +142,8 @@ You can find a usable training region for Flanders (here)[https://github.com/Dim
 
 You can also find the processed files here:
       
-[Box1](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/box/box1.shp)
-[TrainingArea](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/shp/trainingRegionFlanders/papilio_trainingRegionFlandersWGS84.shp)
+[box1](https://drive.google.com/open?id=1yKxSVJ5sfhSkHHY9DRZki_YhDgP86U_s) (Don't forget to unzip)
+[TrainingArea]((here)[https://drive.google.com/open?id=1wkAT3UMIobp5NgyUfBTRg7p5BIpcB34T])(don't forget to unzip)
 
   - under the `Clipped` input line, click `...` and select **`Save to File`** from the menu to save the file in your working directory using the same file name, the output file type is **.tif** . Later we need to convert this file to *.ASC as this is the file type requirement used by MaxEnt. Then, click `Run` to generate the clipped raster file, **biol1_210.tif**.
       
@@ -258,7 +257,7 @@ In Openrefine
 		- check your desired occurrence precission
 		- keep only scientificName, decimalLatitude & decimalLongitude
 		
-		
+You can find a cleaned version of the occurrences file [here](https://drive.google.com/open?id=15cC0ej87ALz4Wx9SVXdNJzoFfQ6opc4X)		
 
 
 3. We are almost ready to create our first species distribution model. But before we do that, load all of the clipped environmental rasters and the species occurrence file in QGIS:
