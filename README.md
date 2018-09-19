@@ -9,6 +9,7 @@ output:
 This repository is a fork from (@dondealban) and contains a short tutorial for creating a species distribution model using QGIS, R, and MaxEnt. The original tutorial was prepared for the skills training sessions during the lab retreat of the [Applied Plant Ecology Lab](https://www.appliedplantecology.org), Department of Biological Sciences, National University of Singapore held on 25-28 September 2017 in Malacca, Malaysia. This version is an adapted version for the QGIS, R and Maxent part of the data use workshop organized by the [Belgian Biodiversity Platform](http://biodiversity.be). 
 
 
+
 ## Table of Contents
 - [Download and Installation](#download)
 - [Study Area](#study_area)
@@ -38,6 +39,13 @@ All the files used and processed in this tutorial can be downloaded here, just i
 
 [R script Papilio](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/R%20dataset%20manipulation%20Papilio_machaon.Rmd)
 
+## Introduction
+
+The presentation can be accessed [here](https://docs.google.com/presentation/d/1wTZaKWcgsh5ET3jg6ker0l_2WUyXVpZHBlM1od5rgbA/edit?usp=sharing)
+
+## Workflow
+
+![workflow](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-workflow.PNG)
 
 
 <a name="download"></a>
@@ -131,7 +139,7 @@ Every time you left click on the map, a dot will be created. QGIS will draw line
 
   ![CreatePolygon](https://github.com/dimevil/tutorial-qgis-maxent/blob/master/screenshots/Qgis_data-prep-create-polygon2.PNG)
   
-`#### Option 2: Create Flanders bouding box in Qgis to clip Raster files (faster)
+#### Option 2: Create Flanders bouding box in Qgis to clip Raster files (faster)
 
 1. First, we will create subsets from the environmental rasters to focus our modeling over our study area. To do this, we will create a polygon shapefile containing the extent of the study area and use this shapefile to clip all the raster map layers. Follow these steps using QGIS:
 
@@ -149,7 +157,7 @@ Next, we will create a polygon from the extent of the Flanders shapefile that we
     
 We have created a bounding box of Flanders, this box **can** be used as the polygon to clip the raster files.     
     
-![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)`
+![data-prepbox](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-box1.PNG)
 
 
 #### Clipping RasterFiles (environmental data) with trainingRegion or bounding box
