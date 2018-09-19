@@ -145,9 +145,9 @@ You can also find the processed files here:
       
   *Repeat this for all other raster layers by following the same process.*
     
-# Converting the Tif files into *.asc files
+#### Converting the Tif files into *.asc files
 
-Maxent is very picky when it comes to the format of the files we can use. for the raster data, all should have exact the same resolution, bounding box and should be in the *.asc format. For the worldclim data this is no problem. If you like to use the altidude in your model. You need to give the topology data some extra tweaks. This is because of all the conversions and rounding errors.
+Maxent is very picky when it comes to the format of the files we can use. for the raster data, all should have exact the same resolution, bounding box and should be in the *.asc format. For the worldclim data this is no problem. If you like to use the altitude in your model. You need to give the topology data some extra tweaks. This is because of all the conversions and rounding errors.
 
 First, let's convert the clipped raster data, which is in .tif format to the *.asc format.
 
@@ -162,6 +162,8 @@ First, let's convert the clipped raster data, which is in .tif format to the *.a
 
 If you want to use the altitude.asc file in your modeling, you need to open the translated altitude.asc file in a text editor [notepad++](https://notepad-plus-plus.org/download/v7.5.8.html) and make sure the bounding box is similar with the bounding box of the other climate variables.
 
+![conversion3](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/convert_to_asc2.PNG)
+
 
 #Extract the occurrence points of the species we are interested in modeling.
 
@@ -174,7 +176,8 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
       - shapefile (shp)
       - occurrences (csv)
       
-![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanCSV.PNG)
+![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-altitude_notepad.PNG)
+
  - save your .csv as a shapefile
       - right click on the layer
       - choose save as ESRI-shape file
