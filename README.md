@@ -39,7 +39,7 @@ There are two types of datasets required in MaxEnt; the species occurrence recor
 	- in GBIF, query for `year between 1960 and 1990`
 	- download and name your file Papilio_machaon 
 		
-You can also find the file [here](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/csv/Papilio_machaon.csv).
+You can also find the file [here](https://drive.google.com/open?id=1D_16xvsOl4zroYbTr8ixXkY3Skikam41).
 
 
 	
@@ -56,8 +56,10 @@ One variable, used frequently in niche modeling is the altitude. The altitude is
 ![data-prep](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-create-geotiff.PNG)
 
 
-To prepare the datasets, we will also need **administrative boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the
+To prepare the datasets, we will also need **boundary** data. We can use the administrative boundary vector data from the [Global Administrative Database](http://www.gadm.org/country). On GADM's Download page, select "Belgium" and "Shapefile" from the *Country* and *Format* drop-down menus, respectively, and click the
 [download](http://biogeo.ucdavis.edu/data/gadm2.8/shp/PHL_adm_shp.zip) link provided (~22 MB, ZIP file).
+
+Because most of the *Papilio* occurrences are situated within Flanders (We can only use the occurrences we have), we will use the administrative boundary of flanders in this exercise.
 
 For this exercise we will use this file 
 
