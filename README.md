@@ -204,7 +204,9 @@ If you want to use the altitude.asc file in your modeling, you need to open the 
 
 For niche modeling in Maxent we need species occurrence records. They should be in csv format and the separator should be ",".  Preparing this file can be done in many tools. We woudl like to recommend *R* , *Openrefine* or *LibreOffice* Using Ms Excel might cause problems as the encoding of the .csv files by excel is not always accepted by Maxent.
 
-We need to be sure that all the occurrences we will use for our Niche modeling are within the training area. We will clean our occurrencs in Qgis.
+1. We need to be sure that all the occurrences we will use for our Niche modeling are within the training area and there are no duplicates in the file. 
+
+First, we will clean our occurrencs in Qgis.
 
  - open Qgis
  - load needed layers
