@@ -176,7 +176,7 @@ We need to be sure that all the occurrences we will use for our Niche modeling a
       - shapefile (shp)
       - occurrences (csv)
       
-
+![cleanCSV](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/screenshots/qgis_data-prep-cleanCSV.PNG)
 
  - save your .csv as a shapefile
       - right click on the layer
