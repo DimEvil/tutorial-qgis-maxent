@@ -19,6 +19,7 @@ SpMDMap <- dat %>%
   distinct(decimalLongitude,decimalLatitude, .keep_all = TRUE)
 
 
+
  data(wrld_simpl)
  plot(wrld_simpl, xlim=c(-80,70), ylim=c(-60,10), axes=TRUE, col="light yellow")
 # restore the box around the map
