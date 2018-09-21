@@ -39,7 +39,7 @@ All the files used and processed in this tutorial can be downloaded here, just i
 
 [R script Papilio](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/R%20dataset%20manipulation%20Papilio_machaon.Rmd)
 
-[R script Maxent_example]
+[R script Maxent_example](https://github.com/DimEvil/tutorial-qgis-maxent/blob/master/script/SDM_with_R.R)
 
 ## Introduction
 
